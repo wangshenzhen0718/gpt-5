@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z31W9SQT4T"></script>
     <script>
@@ -39,7 +38,6 @@
     <script src="https://cdn.tailwindcss.com/3.3.3"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.5.0/mermaid.min.js"></script>
     
     <!-- Language Switcher Script -->
     <script>
@@ -91,9 +89,11 @@
                 reddit_topic1: "\"GPT-5's multimodal capabilities will revolutionize human-computer interaction\" - u/AIfuture2025",
                 reddit_topic2: "\"Excited about GPT-5's potential in scientific research\" - u/ScienceAIresearcher",
                 reddit_topic3: "\"Are concerns about GPT-5 safety exaggerated?\" - u/AIsafetyfirst",
-                hn_topic1: "\"Business model transformations GPT-5 may bring\" - techfounder2024",
+                hn_topic1: "\"Business model transformations GPT-5 may bring\" - techfounder2025",
                 hn_topic2: "\"From GPT-4 to GPT-5: Technical evolution analysis\" - airesearcher",
-                hn_topic3: "\"Predicting GPT-5's impact on software development\" - devopseng"
+                hn_topic3: "\"Predicting GPT-5's impact on software development\" - devopseng",
+                days_ago: "days ago",
+                week_ago: "week ago"
             },
             zh: {
                 home: "首页",
@@ -111,7 +111,7 @@
                 legal_disclaimer: "法律声明",
                 legal_text: "本网站仅供参考。GPT-5.space与OpenAI没有任何关联，未经OpenAI认可或赞助。网站上出现的所有商标、服务标记、商品名称、产品名称和标识均为其各自所有者的财产。本网站提供的信息不构成投资建议、财务建议、交易建议或任何其他形式的建议。",
                 copyright_notice: "版权声明",
-                copyright_text: "© 2024 GPT-5.space。保留所有权利。本网站的内容，包括但不限于文字、图形、图像和其他材料，受版权法保护。未经授权使用、复制或分发内容可能违反适用法律。",
+                copyright_text: "© 2025 GPT-5.space。保留所有权利。本网站的内容，包括但不限于文字、图形、图像和其他材料，受版权法保护。未经授权使用、复制或分发内容可能违反适用法律。",
                 contact_info: "联系方式：contact@gpt-5.space",
                 // Application Areas
                 application_areas: "潜在应用领域",
@@ -142,9 +142,11 @@
                 reddit_topic1: "\"GPT-5的多模态能力将彻底改变人机交互\" - u/AIfuture2025",
                 reddit_topic2: "\"对GPT-5在科学研究中的潜力感到兴奋\" - u/ScienceAIresearcher",
                 reddit_topic3: "\"关于GPT-5安全性的担忧是否被夸大了？\" - u/AIsafetyfirst",
-                hn_topic1: "\"GPT-5可能带来的商业模式变革\" - techfounder2024",
+                hn_topic1: "\"GPT-5可能带来的商业模式变革\" - techfounder2025",
                 hn_topic2: "\"从GPT-4到GPT-5：技术演进分析\" - airesearcher",
-                hn_topic3: "\"预测GPT-5对软件开发的影响\" - devopseng"
+                hn_topic3: "\"预测GPT-5对软件开发的影响\" - devopseng",
+                days_ago: "天前",
+                week_ago: "周前"
             }
         };
 
@@ -159,7 +161,7 @@
             });
             localStorage.setItem('preferred_language', lang);
             
-            // Re-render charts with updated language
+            // Update chart labels
             renderCharts(lang);
         }
 
@@ -167,80 +169,17 @@
             const preferredLanguage = localStorage.getItem('preferred_language') || 'en';
             switchLanguage(preferredLanguage);
             
-            // Initialize charts after language is set
+            // Set active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`${preferredLanguage}-btn`).classList.add('active');
+            
+            // Initialize charts
             renderCharts(preferredLanguage);
         });
         
         function renderCharts(lang) {
-            // Reasoning Capabilities Chart
-            const reasoningCtx = document.getElementById('reasoningChart').getContext('2d');
-            if (window.reasoningChart) window.reasoningChart.destroy();
-            window.reasoningChart = new Chart(reasoningCtx, {
-                type: 'radar',
-                data: {
-                    labels: [
-                        lang === 'en' ? 'Logical Reasoning' : '逻辑推理',
-                        lang === 'en' ? 'Problem Solving' : '问题解决',
-                        lang === 'en' ? 'Abstract Thinking' : '抽象思维',
-                        lang === 'en' ? 'Pattern Recognition' : '模式识别',
-                        lang === 'en' ? 'Decision Making' : '决策能力'
-                    ],
-                    datasets: [{
-                        label: lang === 'en' ? 'GPT-5 Capabilities' : 'GPT-5能力',
-                        data: [95, 90, 88, 92, 89],
-                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                        borderColor: 'rgba(59, 130, 246, 1)',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        r: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                stepSize: 20
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Memory Capabilities Chart
-            const memoryCtx = document.getElementById('memoryChart').getContext('2d');
-            if (window.memoryChart) window.memoryChart.destroy();
-            window.memoryChart = new Chart(memoryCtx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        lang === 'en' ? 'Context Length' : '上下文长度',
-                        lang === 'en' ? 'Memory Retention' : '记忆保留',
-                        lang === 'en' ? 'Processing Speed' : '处理速度',
-                        lang === 'en' ? 'Knowledge Base' : '知识库'
-                    ],
-                    datasets: [{
-                        label: lang === 'en' ? 'Improvement over GPT-4' : '相比GPT-4的提升',
-                        data: [400, 300, 250, 350],
-                        backgroundColor: 'rgba(99, 102, 241, 0.2)',
-                        borderColor: 'rgba(99, 102, 241, 1)',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: lang === 'en' ? 'Percentage Increase (%)' : '提升百分比 (%)'
-                            }
-                        }
-                    }
-                }
-            });
-
             // Community Sentiment chart
             const communityCtx = document.getElementById('communityChart').getContext('2d');
             if (window.communityChart) window.communityChart.destroy();
@@ -283,6 +222,7 @@
         :root {
             --primary: #3b82f6;
             --secondary: #8b5cf6;
+            --accent: #10b981;
         }
         
         body {
@@ -434,6 +374,50 @@
             color: white;
         }
         
+        /* Custom chart styles */
+        .capability-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .chart-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .chart-label {
+            width: 180px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #334155;
+        }
+        
+        .chart-bar {
+            flex-grow: 1;
+            height: 16px;
+            background-color: #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .chart-fill {
+            height: 100%;
+            border-radius: 8px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .chart-value {
+            width: 50px;
+            text-align: right;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 768px) {
             .section {
                 padding: 3rem 0;
@@ -441,6 +425,10 @@
             
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .chart-label {
+                width: 130px;
             }
         }
     </style>
@@ -459,7 +447,7 @@
                 <a href="#community" class="text-slate-600 hover:text-blue-500 transition-colors font-medium" data-i18n="community">Community</a>
                 <a href="#future" class="text-slate-600 hover:text-blue-500 transition-colors font-medium" data-i18n="future">Future</a>
                 <div class="flex items-center space-x-2">
-                    <button onclick="switchLanguage('en')" class="lang-btn" id="en-btn">
+                    <button onclick="switchLanguage('en')" class="lang-btn active" id="en-btn">
                         <img src="https://flagcdn.com/w40/gb.png" alt="English">
                     </button>
                     <button onclick="switchLanguage('zh')" class="lang-btn" id="zh-btn">
@@ -480,7 +468,7 @@
                 <a href="#community" class="py-3 px-4 rounded-lg hover:bg-slate-100 font-medium" data-i18n="community">Community</a>
                 <a href="#future" class="py-3 px-4 rounded-lg hover:bg-slate-100 font-medium" data-i18n="future">Future</a>
                 <div class="flex items-center justify-center space-x-4 py-3 px-4">
-                    <button onclick="switchLanguage('en')" class="lang-btn">
+                    <button onclick="switchLanguage('en')" class="lang-btn active">
                         <img src="https://flagcdn.com/w40/gb.png" alt="English">
                     </button>
                     <button onclick="switchLanguage('zh')" class="lang-btn">
@@ -551,9 +539,45 @@
                         <h3 class="text-2xl font-semibold" data-i18n="superior_reasoning">Superior Reasoning</h3>
                     </div>
                     <p class="text-slate-600 mb-6" data-i18n="reasoning_desc">GPT-5 will achieve human-level logical reasoning and problem-solving abilities, capable of handling complex abstract concepts and multi-step reasoning tasks.</p>
-                    <div class="chart-container mb-6">
-                        <canvas id="reasoningChart"></canvas>
+                    
+                    <div class="capability-chart">
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="logical_reasoning">Logical Reasoning</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-blue-500" style="width: 95%"></div>
+                            </div>
+                            <div class="chart-value">95%</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="problem_solving">Problem Solving</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-blue-500" style="width: 90%"></div>
+                            </div>
+                            <div class="chart-value">90%</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="abstract_thinking">Abstract Thinking</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-blue-500" style="width: 88%"></div>
+                            </div>
+                            <div class="chart-value">88%</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="pattern_recognition">Pattern Recognition</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-blue-500" style="width: 92%"></div>
+                            </div>
+                            <div class="chart-value">92%</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="decision_making">Decision Making</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-blue-500" style="width: 89%"></div>
+                            </div>
+                            <div class="chart-value">89%</div>
+                        </div>
                     </div>
+                    
                     <div class="flex flex-wrap">
                         <span class="tag bg-blue-100 text-blue-800" data-i18n="logical_reasoning">Logical Reasoning</span>
                         <span class="tag bg-blue-100 text-blue-800" data-i18n="causal_inference">Causal Inference</span>
@@ -569,9 +593,28 @@
                         <h3 class="text-2xl font-semibold" data-i18n="native_multimodal">Native Multimodal</h3>
                     </div>
                     <p class="text-slate-600 mb-6" data-i18n="multimodal_desc">GPT-5 will natively support multimodal interactions including text, images, audio and video, enabling more natural human-computer interaction experiences.</p>
-                    <div class="mermaid mb-6 text-center">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/27/18/15/ai-8022422_1280.png" alt="Multimodal AI" class="rounded-xl max-w-full mx-auto">
+                    
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="grid grid-cols-2 gap-4 w-full max-w-xs">
+                            <div class="bg-blue-50 p-4 rounded-xl flex flex-col items-center">
+                                <i class="fas fa-font text-blue-500 text-2xl mb-2"></i>
+                                <span data-i18n="text">Text</span>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-xl flex flex-col items-center">
+                                <i class="fas fa-image text-purple-500 text-2xl mb-2"></i>
+                                <span data-i18n="images">Images</span>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-xl flex flex-col items-center">
+                                <i class="fas fa-music text-indigo-500 text-2xl mb-2"></i>
+                                <span data-i18n="audio">Audio</span>
+                            </div>
+                            <div class="bg-pink-50 p-4 rounded-xl flex flex-col items-center">
+                                <i class="fas fa-video text-pink-500 text-2xl mb-2"></i>
+                                <span data-i18n="video">Video</span>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="flex flex-wrap">
                         <span class="tag bg-purple-100 text-purple-800" data-i18n="text_understanding">Text Understanding</span>
                         <span class="tag bg-purple-100 text-purple-800" data-i18n="image_recognition">Image Recognition</span>
@@ -589,9 +632,38 @@
                         <h3 class="text-2xl font-semibold" data-i18n="expanded_context">Expanded Context & Memory</h3>
                     </div>
                     <p class="text-slate-600 mb-6" data-i18n="memory_desc">GPT-5 will feature a longer context window and persistent memory capabilities, enabling processing of longer documents while maintaining conversational consistency.</p>
-                    <div class="chart-container mb-6">
-                        <canvas id="memoryChart"></canvas>
+                    
+                    <div class="capability-chart">
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="context_length">Context Length</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-indigo-500" style="width: 95%"></div>
+                            </div>
+                            <div class="chart-value">400%</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="memory_retention">Memory Retention</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-indigo-500" style="width: 80%"></div>
+                            </div>
+                            <div class="chart-value">300%</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="processing_speed">Processing Speed</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-indigo-500" style="width: 70%"></div>
+                            </div>
+                            <div class="chart-value">250%</div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label" data-i18n="knowledge_base">Knowledge Base</div>
+                            <div class="chart-bar">
+                                <div class="chart-fill bg-indigo-500" style="width: 85%"></div>
+                            </div>
+                            <div class="chart-value">350%</div>
+                        </div>
                     </div>
+                    
                     <div class="flex flex-wrap">
                         <span class="tag bg-indigo-100 text-indigo-800" data-i18n="long_document">Long Document</span>
                         <span class="tag bg-indigo-100 text-indigo-800" data-i18n="conversation">Conversation</span>
@@ -607,9 +679,36 @@
                         <h3 class="text-2xl font-semibold" data-i18n="autonomous_agents">Autonomous Agents</h3>
                     </div>
                     <p class="text-slate-600 mb-6" data-i18n="agents_desc">GPT-5 will have stronger autonomy and agency capabilities, able to execute complex task sequences and interact with external tools and APIs.</p>
-                    <div class="mermaid mb-6 text-center">
-                        <img src="https://cdn.pixabay.com/photo/2021/01/21/15/54/artificial-intelligence-5937487_1280.jpg" alt="Autonomous Agents" class="rounded-xl max-w-full mx-auto">
+                    
+                    <div class="bg-sky-50 rounded-xl p-5 mb-6">
+                        <div class="flex flex-col space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-sky-600 mr-3">
+                                    <i class="fas fa-list-check"></i>
+                                </div>
+                                <span data-i18n="task_planning">Task Planning</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-sky-600 mr-3">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <span data-i18n="tool_usage">Tool Usage</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-sky-600 mr-3">
+                                    <i class="fas fa-arrows-rotate"></i>
+                                </div>
+                                <span data-i18n="self_improvement">Self-Improvement</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-sky-600 mr-3">
+                                    <i class="fas fa-plug"></i>
+                                </div>
+                                <span data-i18n="api_integration">API Integration</span>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="flex flex-wrap">
                         <span class="tag bg-sky-100 text-sky-800" data-i18n="task_planning">Task Planning</span>
                         <span class="tag bg-sky-100 text-sky-800" data-i18n="tool_usage">Tool Usage</span>
@@ -628,7 +727,41 @@
             <div class="max-w-3xl mx-auto">
                 <div class="mb-16">
                     <div class="bg-white p-6 rounded-xl shadow-sm">
-                        <img src="https://cdn.pixabay.com/photo/2021/11/11/15/05/technology-6786446_1280.jpg" alt="AI Evolution Timeline" class="rounded-lg w-full">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-sm font-medium text-slate-500">2018</div>
+                            <div class="text-sm font-medium text-slate-500">2025</div>
+                        </div>
+                        <div class="relative h-2 bg-slate-200 rounded-full overflow-hidden mb-8">
+                            <div class="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-purple-500" style="width: 90%"></div>
+                            <div class="absolute top-0 left-0 h-full w-3 bg-white border-2 border-blue-500 rounded-full" style="left: 10%"></div>
+                            <div class="absolute top-0 left-0 h-full w-3 bg-white border-2 border-blue-500 rounded-full" style="left: 30%"></div>
+                            <div class="absolute top-0 left-0 h-full w-3 bg-white border-2 border-blue-500 rounded-full" style="left: 50%"></div>
+                            <div class="absolute top-0 left-0 h-full w-3 bg-white border-2 border-blue-500 rounded-full" style="left: 70%"></div>
+                            <div class="absolute top-0 left-0 h-full w-3 bg-white border-2 border-blue-500 rounded-full" style="left: 85%"></div>
+                        </div>
+                        
+                        <div class="grid grid-cols-5 gap-4">
+                            <div class="text-center">
+                                <div class="text-sm font-semibold">GPT-1</div>
+                                <div class="text-xs text-slate-500">2018</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-semibold">GPT-2</div>
+                                <div class="text-xs text-slate-500">2019</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-semibold">GPT-3</div>
+                                <div class="text-xs text-slate-500">2020</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-semibold">GPT-4</div>
+                                <div class="text-xs text-slate-500">2023</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-semibold text-blue-600">GPT-5</div>
+                                <div class="text-xs text-blue-500 font-medium">2025</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -650,7 +783,7 @@
                             <div class="timeline-line flex-grow"></div>
                         </div>
                         <div class="glass-card p-6 rounded-xl flex-1 hover-scale">
-                            <h3 class="text-xl font-semibold mb-2">GPT-4o (May 2024)</h3>
+                            <h3 class="text-xl font-semibold mb-2">GPT-4o (May 2025)</h3>
                             <p class="text-slate-600" data-i18n="gpt4o_desc">Optimized version with improved response speed and efficiency at lower cost.</p>
                         </div>
                     </div>
@@ -661,7 +794,7 @@
                             <div class="timeline-line flex-grow"></div>
                         </div>
                         <div class="glass-card p-6 rounded-xl flex-1 hover-scale">
-                            <h3 class="text-xl font-semibold mb-2">GPT-4.5 "Orion" (Q4 2024)</h3>
+                            <h3 class="text-xl font-semibold mb-2">GPT-4.5 "Orion" (Q4 2025)</h3>
                             <p class="text-slate-600" data-i18n="gpt45_desc">Transitional version incorporating some GPT-5 technologies for testing.</p>
                         </div>
                     </div>
@@ -699,21 +832,21 @@
                             <p class="text-slate-600 mb-2" data-i18n="reddit_topic1">"GPT-5's multimodal capabilities will revolutionize human-computer interaction" - u/AIfuture2025</p>
                             <div class="flex items-center text-sm text-slate-500">
                                 <span class="mr-3">1.2k ↑</span>
-                                <span data-i18n="days_ago">3 days ago</span>
+                                <span>3 <span data-i18n="days_ago">days ago</span></span>
                             </div>
                         </div>
                         <div class="border-b border-slate-100 pb-4">
                             <p class="text-slate-600 mb-2" data-i18n="reddit_topic2">"Excited about GPT-5's potential in scientific research" - u/ScienceAIresearcher</p>
                             <div class="flex items-center text-sm text-slate-500">
                                 <span class="mr-3">856 ↑</span>
-                                <span data-i18n="days_ago">5 days ago</span>
+                                <span>5 <span data-i18n="days_ago">days ago</span></span>
                             </div>
                         </div>
                         <div>
                             <p class="text-slate-600 mb-2" data-i18n="reddit_topic3">"Are concerns about GPT-5 safety exaggerated?" - u/AIsafetyfirst</p>
                             <div class="flex items-center text-sm text-slate-500">
                                 <span class="mr-3">723 ↑</span>
-                                <span data-i18n="week_ago">1 week ago</span>
+                                <span>1 <span data-i18n="week_ago">week ago</span></span>
                             </div>
                         </div>
                     </div>
@@ -728,24 +861,24 @@
                     </div>
                     <div class="space-y-4">
                         <div class="border-b border-slate-100 pb-4">
-                            <p class="text-slate-600 mb-2" data-i18n="hn_topic1">"Business model transformations GPT-5 may bring" - techfounder2024</p>
+                            <p class="text-slate-600 mb-2" data-i18n="hn_topic1">"Business model transformations GPT-5 may bring" - techfounder2025</p>
                             <div class="flex items-center text-sm text-slate-500">
                                 <span class="mr-3">98 points</span>
-                                <span data-i18n="days_ago">2 days ago</span>
+                                <span>2 <span data-i18n="days_ago">days ago</span></span>
                             </div>
                         </div>
                         <div class="border-b border-slate-100 pb-4">
                             <p class="text-slate-600 mb-2" data-i18n="hn_topic2">"From GPT-4 to GPT-5: Technical evolution analysis" - airesearcher</p>
                             <div class="flex items-center text-sm text-slate-500">
                                 <span class="mr-3">156 points</span>
-                                <span data-i18n="days_ago">4 days ago</span>
+                                <span>4 <span data-i18n="days_ago">days ago</span></span>
                             </div>
                         </div>
                         <div>
                             <p class="text-slate-600 mb-2" data-i18n="hn_topic3">"Predicting GPT-5's impact on software development" - devopseng</p>
                             <div class="flex items-center text-sm text-slate-500">
                                 <span class="mr-3">203 points</span>
-                                <span data-i18n="week_ago">1 week ago</span>
+                                <span>1 <span data-i18n="week_ago">week ago</span></span>
                             </div>
                         </div>
                     </div>
@@ -768,8 +901,23 @@
             
             <div class="max-w-4xl mx-auto">
                 <div class="glass-card p-8 rounded-xl mb-8 hover-scale">
-                    <div class="text-center">
-                        <img src="https://cdn.pixabay.com/photo/2019/08/06/22/48/artificial-intelligence-4389372_1280.jpg" alt="AI Future Applications" class="rounded-xl max-w-full mx-auto">
+                    <div class="grid grid-cols-4 gap-4 text-center">
+                        <div class="bg-gradient-to-br from-blue-100 to-indigo-100 p-4 rounded-xl">
+                            <i class="fas fa-flask text-3xl text-blue-600 mb-3"></i>
+                            <div class="font-semibold" data-i18n="scientific_research">Scientific Research</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-100 to-emerald-100 p-4 rounded-xl">
+                            <i class="fas fa-graduation-cap text-3xl text-green-600 mb-3"></i>
+                            <div class="font-semibold" data-i18n="education">Education</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-red-100 to-pink-100 p-4 rounded-xl">
+                            <i class="fas fa-heartbeat text-3xl text-red-600 mb-3"></i>
+                            <div class="font-semibold" data-i18n="healthcare">Healthcare</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-100 to-fuchsia-100 p-4 rounded-xl">
+                            <i class="fas fa-paint-brush text-3xl text-purple-600 mb-3"></i>
+                            <div class="font-semibold" data-i18n="creative_industries">Creative Industries</div>
+                        </div>
                     </div>
                 </div>
                 
@@ -825,7 +973,7 @@
                 <div class="flex flex-col md:flex-row justify-between items-center mb-8">
                     <div class="mb-6 md:mb-0">
                         <a href="#" class="text-2xl font-bold gradient-text">GPT-5.space</a>
-                        <p class="text-slate-400 mt-2" data-i18n="exploring_ai">Exploring Next-Gen AI Technology</p>
+                        <p class="text-slate-400 mt-2">Exploring Next-Gen AI Technology</p>
                     </div>
                     <div class="flex space-x-6">
                         <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
@@ -836,14 +984,13 @@
                 
                 <div class="border-t border-slate-800 pt-8">
                     <div class="flex flex-col md:flex-row justify-between items-center">
-                        <p class="text-slate-500 text-sm mb-4 md:mb-0">© 2024 GPT-5.space All Rights Reserved</p>
+                        <p class="text-slate-500 text-sm mb-4 md:mb-0">© 2025 GPT-5.space All Rights Reserved</p>
                         <div class="flex space-x-4">
                             <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy</a>
                             <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Terms</a>
                             <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Disclaimer</a>
                         </div>
                     </div>
-                    <p class="text-slate-500 text-sm mt-4" data-i18n="ai_generated">All content is AI-generated for reference only</p>
                 </div>
             </div>
         </div>
@@ -863,7 +1010,7 @@
                     <div>
                         <h3 class="text-xl font-semibold mb-4" data-i18n="copyright_notice">Copyright Notice</h3>
                         <p class="text-slate-400 text-sm" data-i18n="copyright_text">
-                            © 2024 GPT-5.space. All rights reserved. The content on this website, including but not limited to text, graphics, images, and other material, is protected by copyright law. Any unauthorized use, reproduction, or distribution of the content may violate applicable laws.
+                            © 2025 GPT-5.space. All rights reserved. The content on this website, including but not limited to text, graphics, images, and other material, is protected by copyright law. Any unauthorized use, reproduction, or distribution of the content may violate applicable laws.
                         </p>
                     </div>
                 </div>
@@ -890,27 +1037,6 @@
                 // Close mobile menu
                 document.getElementById('mobileMenu').classList.remove('active');
             });
-        });
-
-        // Initialize mermaid diagrams
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'default',
-            flowchart: {
-                useMaxWidth: true,
-                htmlLabels: true,
-                curve: 'basis'
-            },
-            timeline: {
-                useMaxWidth: true,
-                fontSize: 14
-            }
-        });
-
-        // Set active language button
-        document.addEventListener('DOMContentLoaded', function() {
-            const lang = localStorage.getItem('preferred_language') || 'en';
-            document.getElementById(`${lang}-btn`).classList.add('active');
         });
     </script>
 </body>
