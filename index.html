@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT-5 | The Next Generation of Artificial Intelligence | GPT-5.space</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore the future of AI with GPT-5. Learn about the next generation of language models, featuring superior reasoning, multimodal capabilities, and autonomous agents.">
+    <meta name="keywords" content="GPT-5, artificial intelligence, AI, language model, OpenAI, machine learning, deep learning">
+    <meta name="author" content="GPT-5.space">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="GPT-5 | The Next Generation of Artificial Intelligence">
+    <meta property="og:description" content="Explore the future of AI with GPT-5. Learn about the next generation of language models.">
+    <meta property="og:image" content="https://s.coze.cn/image/fam_94mpG2U/">
+    <meta property="og:url" content="https://gpt-5.space">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GPT-5 | The Next Generation of AI">
+    <meta name="twitter:description" content="Explore the future of AI with GPT-5. Learn about the next generation of language models.">
+    <meta name="twitter:image" content="https://s.coze.cn/image/fam_94mpG2U/">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://gpt-5.space">
+    
+    <script src="https://cdn.tailwindcss.com/3.3.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.5.0/mermaid.min.js"></script>
+    
+    <!-- Language Switcher Script -->
+    <script>
+        const translations = {
+            en: {
+                home: "Home",
+                capabilities: "Capabilities",
+                timeline: "History",
+                community: "Community",
+                future: "Future",
+                hero_title: "GPT-5: The Next AI Revolution",
+                hero_subtitle: "Exploring OpenAI's upcoming breakthrough AI model",
+                expected_release: "Expected Release",
+                superior_reasoning: "Superior Reasoning",
+                multimodal: "Multimodal",
+                expanded_memory: "Expanded Memory",
+                autonomous_agents: "Autonomous Agents",
+                legal_disclaimer: "Legal Disclaimer",
+                legal_text: "This website is for informational purposes only. GPT-5.space is not affiliated with, endorsed by, or sponsored by OpenAI. All trademarks, service marks, trade names, product names and logos appearing on the site are the property of their respective owners. The information provided on this site does not constitute investment advice, financial advice, trading advice, or any other sort of advice.",
+                copyright_notice: "Copyright Notice",
+                copyright_text: "© 2025 GPT-5.space. All rights reserved. The content on this website, including but not limited to text, graphics, images, and other material, is protected by copyright law. Any unauthorized use, reproduction, or distribution of the content may violate applicable laws.",
+                contact_info: "For inquiries: contact@gpt-5.space",
+                // Application Areas
+                application_areas: "Potential Application Areas",
+                scientific_research: "Scientific Research",
+                scientific_research_desc: "Accelerating discoveries, assisting interdisciplinary research, processing complex datasets.",
+                education: "Education",
+                education_desc: "Enabling personalized learning experiences with 24/7 virtual tutor support.",
+                healthcare: "Healthcare",
+                healthcare_desc: "Assisting early disease diagnosis and providing personalized treatment recommendations.",
+                creative_industries: "Creative Industries",
+                creative_industries_desc: "Enhancing content creation capabilities and providing design inspiration tools.",
+                // New translations
+                core_capabilities: "GPT-5 Core Capabilities",
+                dev_timeline: "GPT Series Development Timeline",
+                community_discussions: "Community Discussions",
+                community_sentiment: "Community Sentiment Distribution",
+                future_outlook: "Future Outlook",
+                reasoning_desc: "GPT-5 will achieve human-level logical reasoning and problem-solving abilities, capable of handling complex abstract concepts and multi-step reasoning tasks.",
+                multimodal_desc: "GPT-5 will natively support multimodal interactions including text, images, audio and video, enabling more natural human-computer interaction experiences.",
+                memory_desc: "GPT-5 will feature a longer context window and persistent memory capabilities, enabling processing of longer documents while maintaining conversational consistency.",
+                agents_desc: "GPT-5 will have stronger autonomy and agency capabilities, able to execute complex task sequences and interact with external tools and APIs.",
+                gpt4_desc: "First multimodal version supporting image input with significantly improved reasoning.",
+                gpt4o_desc: "Optimized version with improved response speed and efficiency at lower cost.",
+                gpt45_desc: "Transitional version incorporating some GPT-5 technologies for testing.",
+                gpt5_desc: "Revolutionary upgrade with superior reasoning, native multimodal, expanded memory and autonomous agents.",
+                reddit_title: "Reddit Hot Topics",
+                hn_title: "Hacker News",
+                reddit_topic1: "\"GPT-5's multimodal capabilities will revolutionize human-computer interaction\" - u/AIfuture2025",
+                reddit_topic2: "\"Excited about GPT-5's potential in scientific research\" - u/ScienceAIresearcher",
+                reddit_topic3: "\"Are concerns about GPT-5 safety exaggerated?\" - u/AIsafetyfirst",
+                hn_topic1: "\"Business model transformations GPT-5 may bring\" - techfounder2024",
+                hn_topic2: "\"From GPT-4 to GPT-5: Technical evolution analysis\" - airesearcher",
+                hn_topic3: "\"Predicting GPT-5's impact on software development\" - devopseng"
+            },
+            zh: {
+                home: "首页",
+                capabilities: "能力",
+                timeline: "历史",
+                community: "社区",
+                future: "未来",
+                hero_title: "GPT-5：下一代AI革命",
+                hero_subtitle: "探索OpenAI即将推出的突破性AI模型",
+                expected_release: "预计发布时间",
+                superior_reasoning: "超强推理",
+                multimodal: "多模态",
+                expanded_memory: "扩展记忆",
+                autonomous_agents: "自主代理",
+                legal_disclaimer: "法律声明",
+                legal_text: "本网站仅供参考。GPT-5.space与OpenAI没有任何关联，未经OpenAI认可或赞助。网站上出现的所有商标、服务标记、商品名称、产品名称和标识均为其各自所有者的财产。本网站提供的信息不构成投资建议、财务建议、交易建议或任何其他形式的建议。",
+                copyright_notice: "版权声明",
+                copyright_text: "© 2024 GPT-5.space。保留所有权利。本网站的内容，包括但不限于文字、图形、图像和其他材料，受版权法保护。未经授权使用、复制或分发内容可能违反适用法律。",
+                contact_info: "联系方式：contact@gpt-5.space",
+                // Application Areas
+                application_areas: "潜在应用领域",
+                scientific_research: "科学研究",
+                scientific_research_desc: "加速科学发现，协助跨学科研究，处理复杂数据集。",
+                education: "教育",
+                education_desc: "提供24/7全天候虚拟导师支持，实现个性化学习体验。",
+                healthcare: "医疗健康",
+                healthcare_desc: "协助早期疾病诊断，提供个性化治疗建议。",
+                creative_industries: "创意产业",
+                creative_industries_desc: "增强内容创作能力，提供设计灵感工具。",
+                // New translations
+                core_capabilities: "GPT-5核心能力",
+                dev_timeline: "GPT系列发展时间线",
+                community_discussions: "社区讨论",
+                community_sentiment: "社区情绪分布",
+                future_outlook: "未来展望",
+                reasoning_desc: "GPT-5将实现人类水平的逻辑推理和问题解决能力，能够处理复杂的抽象概念和多步骤推理任务。",
+                multimodal_desc: "GPT-5将原生支持包括文本、图像、音频和视频在内的多模态交互，实现更自然的人机交互体验。",
+                memory_desc: "GPT-5将具备更长的上下文窗口和持久记忆能力，能够处理更长的文档，同时保持对话一致性。",
+                agents_desc: "GPT-5将具备更强的自主性和代理能力，能够执行复杂的任务序列并与外部工具和API交互。",
+                gpt4_desc: "首个支持图像输入的多模态版本，推理能力显著提升。",
+                gpt4o_desc: "优化版本，响应速度和效率提高，成本降低。",
+                gpt45_desc: "过渡版本，融合了部分GPT-5技术进行测试。",
+                gpt5_desc: "革命性升级，具备超强推理、原生多模态、扩展记忆和自主代理能力。",
+                reddit_title: "Reddit热门话题",
+                hn_title: "Hacker News",
+                reddit_topic1: "\"GPT-5的多模态能力将彻底改变人机交互\" - u/AIfuture2025",
+                reddit_topic2: "\"对GPT-5在科学研究中的潜力感到兴奋\" - u/ScienceAIresearcher",
+                reddit_topic3: "\"关于GPT-5安全性的担忧是否被夸大了？\" - u/AIsafetyfirst",
+                hn_topic1: "\"GPT-5可能带来的商业模式变革\" - techfounder2024",
+                hn_topic2: "\"从GPT-4到GPT-5：技术演进分析\" - airesearcher",
+                hn_topic3: "\"预测GPT-5对软件开发的影响\" - devopseng"
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            localStorage.setItem('preferred_language', lang);
+            
+            // Re-render charts with updated language
+            renderCharts(lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const preferredLanguage = localStorage.getItem('preferred_language') || 'en';
+            switchLanguage(preferredLanguage);
+            
+            // Initialize charts after language is set
+            renderCharts(preferredLanguage);
+        });
+        
+        function renderCharts(lang) {
+            // Reasoning Capabilities Chart
+            const reasoningCtx = document.getElementById('reasoningChart').getContext('2d');
+            if (window.reasoningChart) window.reasoningChart.destroy();
+            window.reasoningChart = new Chart(reasoningCtx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        lang === 'en' ? 'Logical Reasoning' : '逻辑推理',
+                        lang === 'en' ? 'Problem Solving' : '问题解决',
+                        lang === 'en' ? 'Abstract Thinking' : '抽象思维',
+                        lang === 'en' ? 'Pattern Recognition' : '模式识别',
+                        lang === 'en' ? 'Decision Making' : '决策能力'
+                    ],
+                    datasets: [{
+                        label: lang === 'en' ? 'GPT-5 Capabilities' : 'GPT-5能力',
+                        data: [95, 90, 88, 92, 89],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Memory Capabilities Chart
+            const memoryCtx = document.getElementById('memoryChart').getContext('2d');
+            if (window.memoryChart) window.memoryChart.destroy();
+            window.memoryChart = new Chart(memoryCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        lang === 'en' ? 'Context Length' : '上下文长度',
+                        lang === 'en' ? 'Memory Retention' : '记忆保留',
+                        lang === 'en' ? 'Processing Speed' : '处理速度',
+                        lang === 'en' ? 'Knowledge Base' : '知识库'
+                    ],
+                    datasets: [{
+                        label: lang === 'en' ? 'Improvement over GPT-4' : '相比GPT-4的提升',
+                        data: [400, 300, 250, 350],
+                        backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                        borderColor: 'rgba(99, 102, 241, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: lang === 'en' ? 'Percentage Increase (%)' : '提升百分比 (%)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Community Sentiment chart
+            const communityCtx = document.getElementById('communityChart').getContext('2d');
+            if (window.communityChart) window.communityChart.destroy();
+            window.communityChart = new Chart(communityCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        lang === 'en' ? 'Excited' : '兴奋',
+                        lang === 'en' ? 'Optimistic' : '乐观',
+                        lang === 'en' ? 'Neutral' : '中立',
+                        lang === 'en' ? 'Concerned' : '担忧'
+                    ],
+                    datasets: [{
+                        data: [45, 30, 15, 10],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(139, 92, 246, 0.8)',
+                            'rgba(156, 163, 175, 0.8)',
+                            'rgba(239, 68, 68, 0.8)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .mobile-menu {
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu.active {
+            transform: scaleY(1);
+        }
+        
+        .chart-container {
+            height: 320px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        
+        .lang-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        .lang-btn.active {
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        .lang-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+        }
+        
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-link {
+            color: #cbd5e1;
+            transition: color 0.2s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">GPT-5.space</a>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-slate-600 hover:text-blue-500 transition-colors font-medium" data-i18n="home">Home</a>
+                <a href="#capabilities" class="text-slate-600 hover:text-blue-500 transition-colors font-medium" data-i18n="capabilities">Capabilities</a>
+                <a href="#timeline" class="text-slate-600 hover:text-blue-500 transition-colors font-medium" data-i18n="timeline">History</a>
+                <a href="#community" class="text-slate-600 hover:text-blue-500 transition-colors font-medium" data-i18n="community">Community</a>
+                <a href="#future" class="text-slate-600 hover:text-blue-500 transition-colors font-medium" data-i18n="future">Future</a>
+                <div class="flex items-center space-x-2">
+                    <button onclick="switchLanguage('en')" class="lang-btn" id="en-btn">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                    </button>
+                    <button onclick="switchLanguage('zh')" class="lang-btn" id="zh-btn">
+                        <img src="https://flagcdn.com/w40/cn.png" alt="中文">
+                    </button>
+                </div>
+            </div>
+            <button id="mobileMenuButton" class="md:hidden text-slate-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu absolute w-full bg-white shadow-md md:hidden z-50">
+            <div class="flex flex-col space-y-2 p-4">
+                <a href="#home" class="py-3 px-4 rounded-lg hover:bg-slate-100 font-medium" data-i18n="home">Home</a>
+                <a href="#capabilities" class="py-3 px-4 rounded-lg hover:bg-slate-100 font-medium" data-i18n="capabilities">Capabilities</a>
+                <a href="#timeline" class="py-3 px-4 rounded-lg hover:bg-slate-100 font-medium" data-i18n="timeline">History</a>
+                <a href="#community" class="py-3 px-4 rounded-lg hover:bg-slate-100 font-medium" data-i18n="community">Community</a>
+                <a href="#future" class="py-3 px-4 rounded-lg hover:bg-slate-100 font-medium" data-i18n="future">Future</a>
+                <div class="flex items-center justify-center space-x-4 py-3 px-4">
+                    <button onclick="switchLanguage('en')" class="lang-btn">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                    </button>
+                    <button onclick="switchLanguage('zh')" class="lang-btn">
+                        <img src="https://flagcdn.com/w40/cn.png" alt="中文">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text" data-i18n="hero_title">GPT-5: The Next AI Revolution</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-8 max-w-2xl mx-auto" data-i18n="hero_subtitle">Exploring OpenAI's upcoming breakthrough AI model</p>
+                
+                <div class="glass-card inline-block px-6 py-3 rounded-full mb-12">
+                    <div class="flex items-center">
+                        <span class="text-blue-600 font-semibold mr-2" data-i18n="expected_release">Expected Release:</span>
+                        <span class="text-slate-800 font-bold">Summer 2025</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                    <div class="glass-card p-6 rounded-xl hover-scale flex flex-col items-center">
+                        <div class="feature-icon text-blue-500">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg" data-i18n="superior_reasoning">Superior Reasoning</h3>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl hover-scale flex flex-col items-center">
+                        <div class="feature-icon text-purple-500">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg" data-i18n="multimodal">Multimodal</h3>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl hover-scale flex flex-col items-center">
+                        <div class="feature-icon text-indigo-500">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg" data-i18n="expanded_memory">Expanded Memory</h3>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl hover-scale flex flex-col items-center">
+                        <div class="feature-icon text-sky-500">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg" data-i18n="autonomous_agents">Autonomous Agents</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center" data-i18n="core_capabilities">GPT-5 Core Capabilities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card p-8 rounded-xl hover-scale">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold" data-i18n="superior_reasoning">Superior Reasoning</h3>
+                    </div>
+                    <p class="text-slate-600 mb-6" data-i18n="reasoning_desc">GPT-5 will achieve human-level logical reasoning and problem-solving abilities, capable of handling complex abstract concepts and multi-step reasoning tasks.</p>
+                    <div class="chart-container mb-6">
+                        <canvas id="reasoningChart"></canvas>
+                    </div>
+                    <div class="flex flex-wrap">
+                        <span class="tag bg-blue-100 text-blue-800" data-i18n="logical_reasoning">Logical Reasoning</span>
+                        <span class="tag bg-blue-100 text-blue-800" data-i18n="causal_inference">Causal Inference</span>
+                        <span class="tag bg-blue-100 text-blue-800" data-i18n="abstract_thinking">Abstract Thinking</span>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-xl hover-scale">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-4">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold" data-i18n="native_multimodal">Native Multimodal</h3>
+                    </div>
+                    <p class="text-slate-600 mb-6" data-i18n="multimodal_desc">GPT-5 will natively support multimodal interactions including text, images, audio and video, enabling more natural human-computer interaction experiences.</p>
+                    <div class="mermaid mb-6 text-center">
+                        <img src="https://cdn.pixabay.com/photo/2023/05/27/18/15/ai-8022422_1280.png" alt="Multimodal AI" class="rounded-xl max-w-full mx-auto">
+                    </div>
+                    <div class="flex flex-wrap">
+                        <span class="tag bg-purple-100 text-purple-800" data-i18n="text_understanding">Text Understanding</span>
+                        <span class="tag bg-purple-100 text-purple-800" data-i18n="image_recognition">Image Recognition</span>
+                        <span class="tag bg-purple-100 text-purple-800" data-i18n="voice_interaction">Voice Interaction</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-xl hover-scale">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold" data-i18n="expanded_context">Expanded Context & Memory</h3>
+                    </div>
+                    <p class="text-slate-600 mb-6" data-i18n="memory_desc">GPT-5 will feature a longer context window and persistent memory capabilities, enabling processing of longer documents while maintaining conversational consistency.</p>
+                    <div class="chart-container mb-6">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                    <div class="flex flex-wrap">
+                        <span class="tag bg-indigo-100 text-indigo-800" data-i18n="long_document">Long Document</span>
+                        <span class="tag bg-indigo-100 text-indigo-800" data-i18n="conversation">Conversation</span>
+                        <span class="tag bg-indigo-100 text-indigo-800" data-i18n="knowledge_retrieval">Knowledge Retrieval</span>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-xl hover-scale">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 mr-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold" data-i18n="autonomous_agents">Autonomous Agents</h3>
+                    </div>
+                    <p class="text-slate-600 mb-6" data-i18n="agents_desc">GPT-5 will have stronger autonomy and agency capabilities, able to execute complex task sequences and interact with external tools and APIs.</p>
+                    <div class="mermaid mb-6 text-center">
+                        <img src="https://cdn.pixabay.com/photo/2021/01/21/15/54/artificial-intelligence-5937487_1280.jpg" alt="Autonomous Agents" class="rounded-xl max-w-full mx-auto">
+                    </div>
+                    <div class="flex flex-wrap">
+                        <span class="tag bg-sky-100 text-sky-800" data-i18n="task_planning">Task Planning</span>
+                        <span class="tag bg-sky-100 text-sky-800" data-i18n="tool_usage">Tool Usage</span>
+                        <span class="tag bg-sky-100 text-sky-800" data-i18n="self_improvement">Self-Improvement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Timeline -->
+    <section id="timeline" class="section bg-slate-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center" data-i18n="dev_timeline">GPT Series Development Timeline</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-16">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <img src="https://cdn.pixabay.com/photo/2021/11/11/15/05/technology-6786446_1280.jpg" alt="AI Evolution Timeline" class="rounded-lg w-full">
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-4">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line flex-grow"></div>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl flex-1 hover-scale">
+                            <h3 class="text-xl font-semibold mb-2">GPT-4 (March 2023)</h3>
+                            <p class="text-slate-600" data-i18n="gpt4_desc">First multimodal version supporting image input with significantly improved reasoning.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-4">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line flex-grow"></div>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl flex-1 hover-scale">
+                            <h3 class="text-xl font-semibold mb-2">GPT-4o (May 2024)</h3>
+                            <p class="text-slate-600" data-i18n="gpt4o_desc">Optimized version with improved response speed and efficiency at lower cost.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-4">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line flex-grow"></div>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl flex-1 hover-scale">
+                            <h3 class="text-xl font-semibold mb-2">GPT-4.5 "Orion" (Q4 2024)</h3>
+                            <p class="text-slate-600" data-i18n="gpt45_desc">Transitional version incorporating some GPT-5 technologies for testing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-4">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line flex-grow"></div>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl flex-1 hover-scale bg-blue-50 border border-blue-100">
+                            <h3 class="text-xl font-semibold mb-2 text-blue-600">GPT-5 (Summer 2025)</h3>
+                            <p class="text-slate-700" data-i18n="gpt5_desc">Revolutionary upgrade with superior reasoning, native multimodal, expanded memory and autonomous agents.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center" data-i18n="community_discussions">Community Discussions</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card p-6 rounded-xl hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 mr-3">
+                            <i class="fab fa-reddit"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="reddit_title">Reddit Hot Topics</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="border-b border-slate-100 pb-4">
+                            <p class="text-slate-600 mb-2" data-i18n="reddit_topic1">"GPT-5's multimodal capabilities will revolutionize human-computer interaction" - u/AIfuture2025</p>
+                            <div class="flex items-center text-sm text-slate-500">
+                                <span class="mr-3">1.2k ↑</span>
+                                <span data-i18n="days_ago">3 days ago</span>
+                            </div>
+                        </div>
+                        <div class="border-b border-slate-100 pb-4">
+                            <p class="text-slate-600 mb-2" data-i18n="reddit_topic2">"Excited about GPT-5's potential in scientific research" - u/ScienceAIresearcher</p>
+                            <div class="flex items-center text-sm text-slate-500">
+                                <span class="mr-3">856 ↑</span>
+                                <span data-i18n="days_ago">5 days ago</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 mb-2" data-i18n="reddit_topic3">"Are concerns about GPT-5 safety exaggerated?" - u/AIsafetyfirst</p>
+                            <div class="flex items-center text-sm text-slate-500">
+                                <span class="mr-3">723 ↑</span>
+                                <span data-i18n="week_ago">1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 mr-3">
+                            <i class="fab fa-hacker-news"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="hn_title">Hacker News</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="border-b border-slate-100 pb-4">
+                            <p class="text-slate-600 mb-2" data-i18n="hn_topic1">"Business model transformations GPT-5 may bring" - techfounder2024</p>
+                            <div class="flex items-center text-sm text-slate-500">
+                                <span class="mr-3">98 points</span>
+                                <span data-i18n="days_ago">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="border-b border-slate-100 pb-4">
+                            <p class="text-slate-600 mb-2" data-i18n="hn_topic2">"From GPT-4 to GPT-5: Technical evolution analysis" - airesearcher</p>
+                            <div class="flex items-center text-sm text-slate-500">
+                                <span class="mr-3">156 points</span>
+                                <span data-i18n="days_ago">4 days ago</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 mb-2" data-i18n="hn_topic3">"Predicting GPT-5's impact on software development" - devopseng</p>
+                            <div class="flex items-center text-sm text-slate-500">
+                                <span class="mr-3">203 points</span>
+                                <span data-i18n="week_ago">1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8 rounded-xl max-w-4xl mx-auto hover-scale">
+                <h3 class="text-xl font-semibold mb-6 text-center" data-i18n="community_sentiment">Community Sentiment Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="communityChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Outlook -->
+    <section id="future" class="section bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center" data-i18n="future_outlook">Future Outlook</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card p-8 rounded-xl mb-8 hover-scale">
+                    <div class="text-center">
+                        <img src="https://cdn.pixabay.com/photo/2019/08/06/22/48/artificial-intelligence-4389372_1280.jpg" alt="AI Future Applications" class="rounded-xl max-w-full mx-auto">
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-xl hover-scale">
+                    <h3 class="text-2xl font-semibold mb-6" data-i18n="application_areas">Potential Application Areas</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-3">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h4 class="font-semibold" data-i18n="scientific_research">Scientific Research</h4>
+                            </div>
+                            <p class="text-slate-600 text-sm" data-i18n="scientific_research_desc">Accelerating discoveries, assisting interdisciplinary research, processing complex datasets.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4 class="font-semibold" data-i18n="education">Education</h4>
+                            </div>
+                            <p class="text-slate-600 text-sm" data-i18n="education_desc">Enabling personalized learning experiences with 24/7 virtual tutor support.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-3">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <h4 class="font-semibold" data-i18n="healthcare">Healthcare</h4>
+                            </div>
+                            <p class="text-slate-600 text-sm" data-i18n="healthcare_desc">Assisting early disease diagnosis and providing personalized treatment recommendations.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-3">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h4 class="font-semibold" data-i18n="creative_industries">Creative Industries</h4>
+                            </div>
+                            <p class="text-slate-600 text-sm" data-i18n="creative_industries_desc">Enhancing content creation capabilities and providing design inspiration tools.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                    <div class="mb-6 md:mb-0">
+                        <a href="#" class="text-2xl font-bold gradient-text">GPT-5.space</a>
+                        <p class="text-slate-400 mt-2" data-i18n="exploring_ai">Exploring Next-Gen AI Technology</p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-discord text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div class="border-t border-slate-800 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-slate-500 text-sm mb-4 md:mb-0">© 2024 GPT-5.space All Rights Reserved</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy</a>
+                            <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Terms</a>
+                            <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Disclaimer</a>
+                        </div>
+                    </div>
+                    <p class="text-slate-500 text-sm mt-4" data-i18n="ai_generated">All content is AI-generated for reference only</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Legal Footer -->
+    <footer class="bg-slate-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4" data-i18n="legal_disclaimer">Legal Disclaimer</h3>
+                        <p class="text-slate-400 text-sm" data-i18n="legal_text">
+                            This website is for informational purposes only. GPT-5.space is not affiliated with, endorsed by, or sponsored by OpenAI. All trademarks, service marks, trade names, product names and logos appearing on the site are the property of their respective owners. The information provided on this site does not constitute investment advice, financial advice, trading advice, or any other sort of advice.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4" data-i18n="copyright_notice">Copyright Notice</h3>
+                        <p class="text-slate-400 text-sm" data-i18n="copyright_text">
+                            © 2024 GPT-5.space. All rights reserved. The content on this website, including but not limited to text, graphics, images, and other material, is protected by copyright law. Any unauthorized use, reproduction, or distribution of the content may violate applicable laws.
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center text-slate-500 text-sm">
+                    <p data-i18n="contact_info">For inquiries: contact@gpt-5.space</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+
+        // Initialize mermaid diagrams
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            timeline: {
+                useMaxWidth: true,
+                fontSize: 14
+            }
+        });
+
+        // Set active language button
+        document.addEventListener('DOMContentLoaded', function() {
+            const lang = localStorage.getItem('preferred_language') || 'en';
+            document.getElementById(`${lang}-btn`).classList.add('active');
+        });
+    </script>
+</body>
+</html>
